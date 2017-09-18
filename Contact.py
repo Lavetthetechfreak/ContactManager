@@ -7,7 +7,7 @@ class Contact:
     def __init__(self):
         self.value = {}
         self.all_contacts = []
-
+    #create new contact
     def create_contact(self):
         self.contact = ['name', 'phone', 'email']
 
@@ -15,6 +15,7 @@ class Contact:
             self.value[request] = input("Please input your {}:".format(request))
         self.all_contacts.append(self.value)
         print(self.all_contacts)
+     #delete contacts
 
     def delete_contact(self, contact_name):
         delete = self.all_contacts
@@ -23,6 +24,7 @@ class Contact:
                 delete.pop(index)
         print(delete)
 
+    #search for contacts
     def search_contact(self):
         search = self.all_contacts
         search_input = input("Enter your name:")
@@ -37,7 +39,7 @@ class Contact:
         else:
             print("Empty Contact list")
 
-
+    #perform all operations
     def all_operations(self):
         value = ''
 
