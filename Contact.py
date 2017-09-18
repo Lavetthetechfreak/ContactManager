@@ -15,6 +15,7 @@ class Contact:
             self.value[request] = input("Please input your {}:".format(request))
         self.all_contacts.append(self.value)
         print(self.all_contacts)
+
      #delete contacts
 
     def delete_contact(self, contact_name):
@@ -57,11 +58,11 @@ class Contact:
             if value == 'C':
                 contact.search_contact()
 
-
+#call
 contact = Contact()
 contact.all_operations()
 
 
 
-# contact.make_contact('all)
+
 
