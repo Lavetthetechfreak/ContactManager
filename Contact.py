@@ -4,33 +4,62 @@ from datetime import date
 
 
 class Contact:
-    def __init__(self, name, phone, email, website, B_day, linkedIn, picture):
-        self.name = name
-        self.phone = phone
-        self.Email = email
-        self.website = website
-        self.B_day = B_day
-        self.linkedIn = linkedIn
-        self.picture = picture
+    def __init__(self):
+        self.value = {}
+        self.all_contacts = []
 
-    def make_contact(self):
-        print("hey enter your details to get our services")
-        self.name = input("enter your name:")
-        self.phone = int(input("Enter your phone number:"))
-        if self.phone < 10:
-            print("Invalid phone number")
+    def create_contact(self):
+        self.contact = ['name', 'phone', 'email']
+
+        for request in self.contact:
+            self.value[request] = input("Please input your {}:".format(request))
+        self.all_contacts.append(self.value)
+        print(self.all_contacts)
+
+    def delete_contact(self, contact_name):
+        delete = self.all_contacts
+        for index, contacted in enumerate(delete):
+            if contact_name == contacted['name']:
+                delete.pop(index)
+        print(delete)
+
+    def search_contact(self):
+        search = self.all_contacts
+        search_input = input("Enter your name:")
+
+        if len(search) > 0:
+            for data in search:
+                if search_input == data['name']:
+                    print(data)
+
+            else:
+                return ValueError("sorry")
         else:
-            self.Email = input('Enter your email address:')
-            self.website = input("Enter your website:")
-            self.B_day = input("Enter your birthday {}: ".format(datetime.date))
-            self.linkedIn = input("Enter your LinkedIn link here:")
-            self.picture = input("Please place your photo here:")
-            print('''Thank you {} Here are your details: 
-                                                phonenumber:{}
-                                                Email:{}
-                                                Website:{}
-                                                Birthday:{}
-                                                LinkedIn:{}
-                                                Photo{}'''.format(self.name, self.phone, self.Email, self.website, self.B_day, self.linkedIn, self.picture))
-contact = Contact("lavet", '0710698143', 'lavet@gmail.com', 'wwww.lavet.com', '10/20/30', 'gvhbjhgvhbjn', 'no photo')
-contact.make_contact()
+            print("Empty Contact list")
+
+
+    def all_operations(self):
+        value = ''
+
+        while value is not "Q":
+            print(''' 
+                     A.To add contacts
+                     B.To delete contacts
+                     C.To View contacts''')
+            value = str(input("Enter A,B or C:"))
+            if value == "A":
+                contact.create_contact()
+            if value == "B":
+                contact_name = str(input("Enter a Name: "))
+                contact.delete_contact(contact_name)
+            if value == 'C':
+                contact.search_contact()
+
+
+contact = Contact()
+contact.all_operations()
+
+
+
+# contact.make_contact('all)
+
