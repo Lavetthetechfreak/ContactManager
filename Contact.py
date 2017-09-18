@@ -1,7 +1,3 @@
-import time
-import datetime
-from datetime import date
-
 
 class Contact:
     def __init__(self):
