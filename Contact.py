@@ -26,10 +26,10 @@ class Contact:
         search = self.all_contacts
         search_input = input("Enter your name:")
 
-        if len(search) > 0:
-            for data in search:
-                if search_input == data['name']:
-                    print(data)
+        # if len(search) > 0:
+        for data in search:
+            if search_input == data['name']:
+                print(data)
 
             else:
                 return ValueError("sorry")
@@ -44,8 +44,9 @@ class Contact:
             print(''' 
                      A.To add contacts
                      B.To delete contacts
-                     C.To View contacts''')
-            value = str(input("Enter A,B or C:"))
+                     C.To View contacts
+                     Q.To quit''')
+            value = str(input("Enter A,B,C or Q:"))
             if value == "A":
                 contact.create_contact()
             if value == "B":
